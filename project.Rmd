@@ -1,0 +1,101 @@
+a) summary of data sets
+```{r}
+data<-read.csv('WideReleasesCount.csv',header=TRUE)
+help(data)
+summary(data)
+```
+
+
+```{r}
+head(data)
+```
+```{r}
+ticketForWarnerBros <- data[,2]
+hist(ticketForWarnerBros)
+```
+```{r}
+ticketForDisney <- data[,3]
+hist(ticketForDisney)
+```
+```{r}
+
+ticketFor20thCenturyFox <- data[,4]
+hist(ticketFor20thCenturyFox)
+```
+
+
+b) Apply all the outlier detection methods described above to your data set as they fit
+
+-Statistical Tests based Approaches:
+a) Dixon test (small sample size)
+
+```{r}
+X=data[1:30,3]
+dixon.test(X,type=0,opposite=TRUE)
+```
+
+b) Normalscore 
+
+```{r}
+X=data[,2:4]
+#scores(X,type="z",prob=0.95)
+#Displaying first 10 scores
+scores(X,type="z",prob=0.95)[1:10,]
+```
+c) Median Absolute Deviation (Deviation with respect to the median)
+```{r}
+X=data[,2:4]
+#scores(X,type="mad",prob=0.95)
+#Displaying first 10 scores
+scores(X,type="mad",prob=0.95)[1:10,]
+```
+d) Interquantile range score
+```{r}
+X=data[,2:4]
+#scores(X,type="iqr",lim=1)
+#Displaying first 10 scores
+scores(X,type="iqr",lim=1)[1:10,]
+```
+Depth-based Approach:
+```{r}
+X=data[,2:4]
+depthout(X,cutoff=0.05)
+```
+Distance-based Approaches
+a) Outlier detection using Mahalanobis Distance
+```{r}
+X=data[,2:4]
+maha(X,cutoff=0.9)
+```
+b) Outlier detection using k Nearest Neighbours Distance method
+```{r}
+X=data[,2:4]
+nn(X,k=4)
+```
+
+c) Outlier detection using kth Nearest Neighbour Distance method
+```{r}
+X=data[,2:4]
+nnk(X,k=4)
+```
+Density-based Approaches
+a) Outlier detection using Robust Kernal-based Outlier Factor(RKOF) algorithm
+
+```{r}
+X=data[,2:4]
+dens(X,k=4,C=1)
+```
+
+b) Outlier detection using genralised dispersion
+```{r}
+X=data[,2:4]
+disp(X,cutoff=0.99)
+```
+Join assessment of outlier detection methods using techniques described under 2 to 5.
+```{r}
+X=data[,2:4]
+OutlierDetection(X, Method = "Euclidean", distance = TRUE, depth = TRUE)
+```
+
+
+
