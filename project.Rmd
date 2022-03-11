@@ -1,6 +1,6 @@
 a) summary of data sets
 ```{r}
-data<-read.csv('WideReleasesCount.csv',header=TRUE)
+data<-read.csv('heart.csv',header=TRUE)
 help(data)
 summary(data)
 ```
@@ -10,17 +10,17 @@ summary(data)
 head(data)
 ```
 ```{r}
-ticketForWarnerBros <- data[,2]
-hist(ticketForWarnerBros)
+age <- data[,1]
+hist(age)
 ```
 ```{r}
-ticketForDisney <- data[,3]
-hist(ticketForDisney)
+sex <- data[,2]
+hist(sex)
 ```
 ```{r}
 
-ticketFor20thCenturyFox <- data[,4]
-hist(ticketFor20thCenturyFox)
+cp <- data[,3]
+hist(cp)
 ```
 
 
