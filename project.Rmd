@@ -22,7 +22,51 @@ hist(sex)
 cp <- data[,3]
 hist(cp)
 ```
+```{r}
+trtbps <- data[,4]
+hist(trtbps)
+```
+```{r}
+chol <- data[,5]
+hist(chol)
+```
+```{r}
+fbs <- data[,6]
+hist(fbs)
+```
 
+```{r}
+restecg <- data[,7]
+hist(restecg)
+```
+```{r}
+thalachh <- data[,8]
+hist(thalachh)
+```
+```{r}
+exng <- data[,9]
+hist(exng)
+```
+```{r}
+oldpeak <- data[,10]
+hist(oldpeak)
+```
+```{r}
+slp <- data[,11]
+hist(slp)
+```
+```{r}
+caa <- data[,12]
+hist(caa)
+```
+```{r}
+thall <- data[,13]
+hist(thall)
+```
+```{r}
+outcome <- data[,14]
+hist(outcome)
+```
 
 b) Apply all the outlier detection methods described above to your data set as they fit
 
